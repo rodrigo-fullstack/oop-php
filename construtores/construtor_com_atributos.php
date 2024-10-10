@@ -6,7 +6,7 @@ class Animal{
     private $nome;
     private $especie;
     private $idade;
-    
+
     public function __construct($nome = null, $especie = null, $idade = 0){
         $verifica_atributos = $nome != null && $especie != null && $idade != 0;
         
@@ -23,3 +23,14 @@ class Animal{
         }
     }
 }
+
+$fin = fopen('php://stdin', 'r');
+
+$nome_animal = fgets(STDIN);
+$especie_animal = fgets($fin);
+$idade_animal = (int) fgets($fin);
+
+$animal = new Animal($nome_animal, $especie_animal, $idade_animal);
+
+fclose($fin);
+var_dump($animal);
