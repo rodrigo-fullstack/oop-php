@@ -18,3 +18,5 @@ $pessoa->idade = 18;
 echo "Criada pessoa com atributos:
 $pessoa->nome com $pessoa->idade anos.
 ";
+
+//echo $pessoa; Gera fatal error que não consegue converter para string
