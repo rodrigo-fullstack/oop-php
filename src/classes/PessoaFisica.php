@@ -11,14 +11,16 @@ class PessoaFisica{
 
 }
 
-$pessoa = new PessoaFisica();
-$pessoa->nome = 'Rodrigo';
-$pessoa->idade = 18;
+//Código para teste das instâncias
 
-echo "Criada pessoa com atributos:
-$pessoa->nome com $pessoa->idade anos.
-";
+// $pessoa = new PessoaFisica();
+// $pessoa->nome = 'Rodrigo';
+// $pessoa->idade = 18;
 
-var_dump($pessoa); // Realiza a exibição da estrutura da classe
+// echo "Criada pessoa com atributos:
+// $pessoa->nome com $pessoa->idade anos.
+// ";
+
+//var_dump($pessoa);  Realiza a exibição da estrutura da classe
 
 //echo $pessoa; Gera fatal error que não consegue converter para string
