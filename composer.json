@@ -1,0 +1,17 @@
+{
+    "name": "rodrigo/oop_php",
+    "description": "Estudos de POO com PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rodrigo\\OopPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rodrigo-fullstack",
+            "email": "rodrigopereirafaria9@gmail.com"
+        }
+    ],
+    "require": {}
+}
