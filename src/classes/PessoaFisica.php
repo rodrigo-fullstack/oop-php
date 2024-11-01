@@ -19,4 +19,6 @@ echo "Criada pessoa com atributos:
 $pessoa->nome com $pessoa->idade anos.
 ";
 
+var_dump($pessoa); // Realiza a exibição da estrutura da classe
+
 //echo $pessoa; Gera fatal error que não consegue converter para string
