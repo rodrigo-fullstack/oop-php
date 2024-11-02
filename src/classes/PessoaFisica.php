@@ -1,5 +1,8 @@
 <?php
 
+//Namespaces são nomes que organizam as classes, interfaces, funções em diretórios
+namespace Rodrigo\OopPhp\Classes;
+
 //Classe é uma forma que conterá um objeto
 //Em outras palavras é um projeto contendo todos os atributos e métodos que um objeto possuirá em sua instância
 class PessoaFisica{
