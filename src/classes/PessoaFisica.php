@@ -11,7 +11,8 @@ class PessoaFisica{
     public $nome;
     //Atributos são características ou elementos da classe
     public $idade;
-
+    public $data_nasc;
+    public $endereco;
 }
 
 //Código para teste das instâncias
