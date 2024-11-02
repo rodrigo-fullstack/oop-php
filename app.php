@@ -12,8 +12,9 @@ require __DIR__.'/vendor/autoload.php';
 
 //use Rodrigo\OopPhp\TipagemEstatica\PessoaFisica;
 
-//Referenciando pelo autoload Src
-use Rodrigo\OopPhp\GettersSetters\Carro;
+//use Rodrigo\OopPhp\GettersSetters\Carro;
+
+use Rodrigo\OopPhp\Construtores\Animal;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -56,10 +57,12 @@ $pessoa-> CPF = "98765432100";
 echo 'Id da pessoa: ' . $pessoa-> exibirId() . "\n";
 */
 
-$carro = new Carro();
+//$carro = new Carro();
 
 //Heredoc da linguagem PHP são strings com delimitadores ("aspas") identificados
 //Para chamar métodos em strings utilize {$classe-> metodo()}
+
+/*
 echo (<<<CARRO_IMPRESSÃO
 Id do Carro: {$carro-> getId()}
 Marca do Carro: {$carro-> getMarca()}
@@ -70,8 +73,20 @@ CARRO_IMPRESSÃO);
 $carro->setId(1);
 $carro->setMarca('Toyota');
 $carro->setModelo('Camry');
+*/
+
+$nome_animal = "Josemias";
+$especie_animal = "Cachorro";
+$idade_animal = 5;
+
+$animal = new Animal(
+    $nome_animal,
+    $especie_animal,
+    $idade_animal
+);
+
 
 //Melhor vardumper, do Symphony
 //No dump, + significa público
 //No dump, - significa privado
-dump($carro);
+dump($animal);
