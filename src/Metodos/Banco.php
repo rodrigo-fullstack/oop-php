@@ -19,11 +19,8 @@ class Banco{
             $this -> saldo -= $dinheiro;
             return true;
         }
-
-        //Verificar se
+        //Verificar se a quantia digitada é maior que o salário
         return false;
-
-
     }
 
     //Adiciona ao saldo a quantia necessitada
