@@ -151,7 +151,7 @@ $pessoa02::exibirIdComStatic();
 
 /*Testando Herança Simples
 
-*/
+
 
 //Objeto pessoa de PessoaFisica
 $pessoa = new PessoaFisica();
@@ -172,7 +172,7 @@ if($empresa instanceof PessoaFisica){
 }
 else{
     echo 'Objeto empresa não é instância de PessoaFisica';
-}
+}*/
 
 
 //Melhor vardumper, do Symphony
