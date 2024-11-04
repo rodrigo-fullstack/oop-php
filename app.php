@@ -14,7 +14,9 @@ require __DIR__.'/vendor/autoload.php';
 
 //use Rodrigo\OopPhp\GettersSetters\Carro;
 
-use Rodrigo\OopPhp\Construtores\Animal;
+// use Rodrigo\OopPhp\Construtores\Animal;
+
+use Rodrigo\OopPhp\ThisSelf\PessoaFisica;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -62,7 +64,7 @@ echo 'Id da pessoa: ' . $pessoa-> exibirId() . "\n";
 //Heredoc da linguagem PHP são strings com delimitadores ("aspas") identificados
 //Para chamar métodos em strings utilize {$classe-> metodo()}
 
-/*
+/* Testando Getters e Setters
 echo (<<<CARRO_IMPRESSÃO
 Id do Carro: {$carro-> getId()}
 Marca do Carro: {$carro-> getMarca()}
@@ -70,11 +72,13 @@ Modelo do Carro: {$carro-> getModelo()}
 
 CARRO_IMPRESSÃO);
 
-$carro->setId(1);
-$carro->setMarca('Toyota');
-$carro->setModelo('Camry');
+$carro-> id = 1;
+$carro-> setId(1);
+$carro-> setMarca('Toyota');
+$carro-> setModelo('Camry');
 */
 
+/*Testando Construtores
 $nome_animal = "Josemias";
 $especie_animal = "Cachorro";
 $idade_animal = 5;
@@ -83,10 +87,64 @@ $animal = new Animal(
     $nome_animal,
     $especie_animal,
     $idade_animal
+);*/
+
+// Testando métodos estáticos com $this e self::$atributo;
+
+//Construtor aumenta em 1 o ID
+$pessoa = new PessoaFisica(
+    'Rodrigo',
+    22,
+    '9321854632'
 );
+
+// PessoaFisica::exibirId(); Pode chamar métodos estáticos sem ser instanciado
+// PessoaFisica-> exibirNome(); Não pode chamar métodos
+
+//Exibindo com método estático
+PessoaFisica::exibirIdComStatic();
+//$PessoaFisica-> exibirIdSemStatic(); Variável indefinida
+//PessoaFisica-> exibirIdSemStatic(); Não aceita objeto null
+
+// Acessando atributo estático no objeto instanciado
+// $pessoa-> exibirIdSemStatic(); Não consegue acessar por não ser método estático - obs: acesso feito com $this
+
+$pessoa::exibirIdComStatic();
+
+// Mudando através do set com self sem ser método estático
+// $pessoa-> setIdSemStatic(1);
+
+// Mudando através do set com self com método estático
+// ID mudado para 2
+$pessoa::setIdComStatic(2);
+
+// Ambos acima geram o mesmo resultado
+
+// Muda também na classe
+PessoaFisica::exibirIdComStatic();
+$pessoa::exibirIdComStatic();
+$pessoa-> exibirNome(); //Método normal
+
+//Testando Get com Métodos Estáticos
+
+// Funciona normalmente
+echo "\nAtrib Static com Get sem Static: {$pessoa-> getIdSemStatic()}";
+
+//Funciona normalmente
+echo "\nAtrib Static com Get com Static: {$pessoa::getIdComStatic()} \n";
+
+//ID aumentou em 1
+$pessoa02 = new PessoaFisica(
+    'Gabriela',
+    21,
+    '03219432100'
+     );
+
+//Construtor aumenta em 1 o ID para todos os objetos:
+$pessoa02::exibirIdComStatic();
 
 
 //Melhor vardumper, do Symphony
 //No dump, + significa público
 //No dump, - significa privado
-dump($animal);
+dump($pessoa03);
