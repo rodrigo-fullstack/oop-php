@@ -25,6 +25,13 @@ abstract class Pessoa{
             return false;
     }
 
+    abstract public function getDocument(): string;
+    abstract public function setDocument(string $document);
+
+    public function exibirNome(){
+        echo "Nome = {$this->getNome()}" . PHP_EOL;
+    }
+
     public function getId(): int{
         return $this-> id;
     }

@@ -179,9 +179,7 @@ else{
 }*/
 
 /*Testando Classes Abstratas
-
 */
-
 //$pessoa = new Pessoa(); Não consegue instanciar classe abstrata
 $pessoa = new PessoaFisica();
 $empresa = new PessoaJuridica();
@@ -190,11 +188,11 @@ $pessoa-> setId(1);
 $pessoa-> setNome('Rodrigo');
 $pessoa-> setIdade(18);
 $pessoa-> setGenero('98765432100');
-$pessoa-> setCPF('98765432100');
+$pessoa-> setDocument('98765432100');
 
 $empresa-> setId(2);
 $empresa-> setNome('Sony');
-$empresa-> setCNPJ('012301203012312030');
+$empresa-> setDocument('012301203012312030');
 
 // function verificarInstanciaPessoa($objeto): bool{
 
@@ -204,8 +202,19 @@ $empresa-> setCNPJ('012301203012312030');
 Pessoa::instancia($pessoa);
 Pessoa::instancia($empresa);
 
+//Com a tipagem já verifica se é da classe Pessoa
+function getName(Pessoa $classe){
+    $classe-> exibirNome();
+    return $classe-> getNome();
+}
+
+//Acessando nome do objeto
+getName($pessoa);
+getName($empresa);
+
+
 //Melhor vardumper, do Symphony
 //No dump, + significa público
 //No dump, - significa privado
-dump($pessoa);
-dump($empresa);
+// dump($pessoa);
+// dump($empresa);

@@ -19,7 +19,8 @@ class PessoaFisica extends Pessoa{
         return $this-> genero;
     }
 
-    public function getCPF(): string{
+    //Método concreto substituído do método abstrato de pessoa
+    public function getDocument(): string{
         return $this-> cpf;
     }
 
@@ -31,8 +32,10 @@ class PessoaFisica extends Pessoa{
         $this-> genero = $genero;
     }
 
-    public function setCPF(string $cpf){
+    //Método concreto substituído do método abstrato de pessoa
+    public function setDocument(string $cpf){
         $this-> cpf = $cpf;
+
     }
 
 }

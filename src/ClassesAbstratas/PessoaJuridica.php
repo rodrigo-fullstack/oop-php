@@ -9,13 +9,15 @@ class PessoaJuridica extends Pessoa{
     private string $cnpj;
 
     //Adiciona-se esses métodos
-    public function getCNPJ(){
+
+    public function getDocument(): string{
         return $this-> cnpj;
 
     }
-
-    public function setCNPJ(string $cnpj){
+    public function setDocument(string $cnpj){
         $this-> cnpj = $cnpj;
     }
+
+
 
 }
