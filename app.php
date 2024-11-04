@@ -16,7 +16,12 @@ require __DIR__.'/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\Construtores\Animal;
 
-use Rodrigo\OopPhp\ThisSelf\PessoaFisica;
+// use Rodrigo\OopPhp\ThisSelf\PessoaFisica;
+
+
+use Rodrigo\OopPhp\Heranca\PessoaFisica;
+use Rodrigo\OopPhp\Heranca\PessoaJuridica;
+
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -89,7 +94,7 @@ $animal = new Animal(
     $idade_animal
 );*/
 
-// Testando métodos estáticos com $this e self::$atributo;
+/* Testando métodos estáticos com $this e self::$atributo;
 
 //Construtor aumenta em 1 o ID
 $pessoa = new PessoaFisica(
@@ -142,9 +147,36 @@ $pessoa02 = new PessoaFisica(
 
 //Construtor aumenta em 1 o ID para todos os objetos:
 $pessoa02::exibirIdComStatic();
+*/
+
+/*Testando Herança Simples
+
+*/
+
+//Objeto pessoa de PessoaFisica
+$pessoa = new PessoaFisica();
+$pessoa-> setId(1);
+$pessoa-> setNome('Rodrigo');
+$pessoa-> setIdade(18);
+$pessoa-> setGenero('M');
+
+$empresa = new PessoaJuridica();
+$empresa-> setId(1);
+$empresa-> setNome('Rodrigo');
+$empresa-> setIdade(5);
+$empresa-> setGenero('I');
+
+//Empresa herda características de PessoaFisica, portanto é também uma instância
+if($empresa instanceof PessoaFisica){
+    echo 'Objeto empresa é instância de PessoaFisica';
+}
+else{
+    echo 'Objeto empresa não é instância de PessoaFisica';
+}
 
 
 //Melhor vardumper, do Symphony
 //No dump, + significa público
 //No dump, - significa privado
-dump($pessoa03);
+dump($pessoa);
+dump($empresa);
