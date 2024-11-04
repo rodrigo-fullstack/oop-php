@@ -18,9 +18,13 @@ require __DIR__.'/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\ThisSelf\PessoaFisica;
 
+// use Rodrigo\OopPhp\Heranca\PessoaFisica;
+// use Rodrigo\OopPhp\Heranca\PessoaJuridica;
 
-use Rodrigo\OopPhp\Heranca\PessoaFisica;
-use Rodrigo\OopPhp\Heranca\PessoaJuridica;
+use Rodrigo\OopPhp\ClassesAbstratas\Pessoa;
+use Rodrigo\OopPhp\ClassesAbstratas\PessoaFisica;
+use Rodrigo\OopPhp\ClassesAbstratas\PessoaJuridica;
+
 
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
@@ -174,6 +178,31 @@ else{
     echo 'Objeto empresa não é instância de PessoaFisica';
 }*/
 
+/*Testando Classes Abstratas
+
+*/
+
+//$pessoa = new Pessoa(); Não consegue instanciar classe abstrata
+$pessoa = new PessoaFisica();
+$empresa = new PessoaJuridica();
+
+$pessoa-> setId(1);
+$pessoa-> setNome('Rodrigo');
+$pessoa-> setIdade(18);
+$pessoa-> setGenero('98765432100');
+$pessoa-> setCPF('98765432100');
+
+$empresa-> setId(2);
+$empresa-> setNome('Sony');
+$empresa-> setCNPJ('012301203012312030');
+
+// function verificarInstanciaPessoa($objeto): bool{
+
+// }
+
+// Aplicação de métodos estáticos sobre a classe abstrata
+Pessoa::instancia($pessoa);
+Pessoa::instancia($empresa);
 
 //Melhor vardumper, do Symphony
 //No dump, + significa público
