@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 
 
@@ -21,10 +21,13 @@ require __DIR__.'/vendor/autoload.php';
 // use Rodrigo\OopPhp\Heranca\PessoaFisica;
 // use Rodrigo\OopPhp\Heranca\PessoaJuridica;
 
-use Rodrigo\OopPhp\ClassesAbstratas\Pessoa;
-use Rodrigo\OopPhp\ClassesAbstratas\PessoaFisica;
-use Rodrigo\OopPhp\ClassesAbstratas\PessoaJuridica;
+// use Rodrigo\OopPhp\ClassesAbstratas\Pessoa;
+// use Rodrigo\OopPhp\ClassesAbstratas\PessoaFisica;
+// use Rodrigo\OopPhp\ClassesAbstratas\PessoaJuridica;
 
+use Rodrigo\OopPhp\Visibilidade\Pessoa;
+use Rodrigo\OopPhp\Visibilidade\PessoaFisica;
+use Rodrigo\OopPhp\Visibilidade\PessoaJuridica;
 
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
@@ -179,7 +182,7 @@ else{
 }*/
 
 /*Testando Classes Abstratas
-*/
+
 //$pessoa = new Pessoa(); Não consegue instanciar classe abstrata
 $pessoa = new PessoaFisica();
 $empresa = new PessoaJuridica();
@@ -211,10 +214,40 @@ function getName(Pessoa $classe){
 //Acessando nome do objeto
 getName($pessoa);
 getName($empresa);
+*/
+
+/*Testando Visibilidade de métodos e atributos
+
+*/
+
+//Construtor de Classe Abstrata
+$pessoa = new PessoaFisica(
+    1,
+    'Rodrigo',
+    18,
+    'M',
+    ''
+);
+
+$empresa = new PessoaJuridica(
+    02,
+    'JohnnyDevs',
+    '00.00001/23154'
+);
+
+//$pessoa::instancia($empresa); Não quero que as classes filhas tenham acesso ao método instancia. Aqui o que acontece é a execução do método na classe abstrata, não na classe PessoaFisica
+//$pessoa::instancia($empresa); Chamada com o método privado impede seu acesso
+
+Pessoa::instancia($pessoa);
+
+//Métodos públicos consegue acessar nas classes filhas
+$pessoa->setId(5);
+$pessoa->setNome('José');
+
 
 
 //Melhor vardumper, do Symphony
 //No dump, + significa público
 //No dump, - significa privado
-// dump($pessoa);
-// dump($empresa);
+dump($pessoa);
+dump($empresa);

@@ -1,14 +1,25 @@
 <?php
 declare(strict_types=1);
 
-namespace Rodrigo\OopPhp\ClassesAbstratas;
+namespace Rodrigo\OopPhp\Visibilidade;
 
 abstract class Pessoa{
     private int $id;
     private string $nome;
 
+
+    public function __construct(
+        int $id,
+        string $nome
+    ){
+        $this-> id = $id;
+        $this-> nome = $nome;
+    }
+
     //Método estático para verificação de instância
-    public static function instancia($objeto){
+    //Eu queria que fosse acessível somente à classe pai e ao app.php, como faço isso?
+    //Privado não consegue ser acessado no app.php
+    private static function instancia($objeto){
         //Verifica se o objeto é instância da classe Pessoa
         //Use self para se referenciar ao objeto no método estático
         if($objeto instanceof self){
@@ -32,11 +43,19 @@ abstract class Pessoa{
         echo "Nome = {$this->getNome()}" . PHP_EOL;
     }
 
-    public function getId(): int{
+    // public function getId(): int{
+    //     return $this-> id;
+    // }
+
+    // public function getNome(): string{
+    //     return $this-> nome;
+    // }
+
+
+    protected function getId(): int{
         return $this-> id;
     }
-
-    public function getNome(): string{
+    protected function getNome(): string{
         return $this-> nome;
     }
 
