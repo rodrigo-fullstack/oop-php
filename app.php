@@ -1,4 +1,8 @@
 <?php
+
+use Rodrigo\OopPhp\InstanceOf\Pessoa;
+use Rodrigo\OopPhp\InstanceOf\PessoaInterface;
+
 require __DIR__ . '/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\Classes\PessoaFisica;
@@ -30,7 +34,7 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\Traits\ContaBancaria;
 // use Rodrigo\OopPhp\Traits\Pessoa;
 
-use Rodrigo\OopPhp\DTO\PessoaDTO;
+// use Rodrigo\OopPhp\DTO\PessoaDTO;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -315,34 +319,60 @@ getName($empresa);
 // Classes Anônimas
 // --------------------
 
-$jovem = new class (json_decode(
-    <<<JSON
-    {
-        "nome": "Enzo Henrigue da Silva",
-        "idade": 14,
-        "documento": "cpf"
-    }
-    JSON
-)) extends PessoaDTO{
+// $jovem = new class (json_decode(
+//     <<<JSON
+//     {
+//         "nome": "Enzo Henrigue da Silva",
+//         "idade": 14,
+//         "documento": "cpf"
+//     }
+//     JSON
+// )) extends PessoaDTO{
 
-    private float $hormonios = 0;
-    private bool $rebeldia = false;
+//     private float $hormonios = 0;
+//     private bool $rebeldia = false;
     
-    public function puberdade(){
-        $this->hormonios += 100;
+//     public function puberdade(){
+//         $this->hormonios += 100;
 
-        echo "Minha voz está grossa..." . PHP_EOL;
-    }
+//         echo "Minha voz está grossa..." . PHP_EOL;
+//     }
 
-    public function tornarRebelde(){
-        $this->rebeldia = true;
+//     public function tornarRebelde(){
+//         $this->rebeldia = true;
 
-        echo "Pô, mãe, deixa eu sair de casa!! RAwhhhrhrr"  . PHP_EOL;
-    }
-};
+//         echo "Pô, mãe, deixa eu sair de casa!! RAwhhhrhrr"  . PHP_EOL;
+//     }
+// };
 
-$jovem->puberdade();
+// $jovem->puberdade();
 
-$jovem->tornarRebelde();
+// $jovem->tornarRebelde();
 
-dump($jovem);
+// dump($jovem);
+
+// --------------------
+// Classes Anônimas
+// --------------------
+
+// $pessoa1 = new Pessoa();
+
+// $pessoa1->nome = "João";
+
+// $pessoa2 = new Pessoa();
+
+// $pessoa2->nome = "Joaquina";
+
+// $pessoa2->tocar($pessoa1);
+// if(!$pessoa1 instanceof PessoaInterface){
+//     $pessoa2->sentirGosto($pessoa1);
+
+// }
+
+// $objeto = new stdClass();
+// $objeto->nome = "Cadeira";
+
+// $pessoa1->falar();
+
+// $pessoa2->sentirGosto($objeto);
+
