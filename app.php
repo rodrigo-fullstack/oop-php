@@ -284,28 +284,65 @@ getName($empresa);
 // stdClass
 // --------------------
 
-$pessoa = new stdClass();
-$pessoa->nome = 'Rodrigo';
-$pessoa->idade = 18;
-$pessoa->documento = '12312312322';
+// $pessoa = new stdClass();
+// $pessoa->nome = 'Rodrigo';
+// $pessoa->idade = 18;
+// $pessoa->documento = '12312312322';
 
 // dump($pessoa);
 
-$apiData = <<<JSON_TEXT
-    {
-        "nome": "Rodrigo",
-        "idade": 18,
-        "documento": "1112223_3333"
-    }
-JSON_TEXT;
+// $apiData = <<<JSON_TEXT
+//     {
+//         "nome": "Rodrigo",
+//         "idade": 18,
+//         "documento": "1112223_3333"
+//     }
+// JSON_TEXT;
 
-$data = json_decode($apiData);
+// $data = json_decode($apiData);
 
 // dump($data);
 // dump($data->name);
 // dump($data->age);
 // dump($data->document);
 
-$pessoa = new PessoaDTO(json_decode($apiData));
+// $pessoa = new PessoaDTO(json_decode($apiData));
 
-dump($pessoa);
+// dump($pessoa);
+
+
+// --------------------
+// Classes Anônimas
+// --------------------
+
+$jovem = new class (json_decode(
+    <<<JSON
+    {
+        "nome": "Enzo Henrigue da Silva",
+        "idade": 14,
+        "documento": "cpf"
+    }
+    JSON
+)) extends PessoaDTO{
+
+    private float $hormonios = 0;
+    private bool $rebeldia = false;
+    
+    public function puberdade(){
+        $this->hormonios += 100;
+
+        echo "Minha voz está grossa..." . PHP_EOL;
+    }
+
+    public function tornarRebelde(){
+        $this->rebeldia = true;
+
+        echo "Pô, mãe, deixa eu sair de casa!! RAwhhhrhrr"  . PHP_EOL;
+    }
+};
+
+$jovem->puberdade();
+
+$jovem->tornarRebelde();
+
+dump($jovem);
