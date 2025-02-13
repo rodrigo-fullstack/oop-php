@@ -6,7 +6,7 @@ use stdClass;
 
 class PessoaDTO{
     public function __construct(
-        public stdClass $propriedades,
+        public ?stdClass $propriedades,
         private string $nome = '',
         private int $idade = 0,
         private string $documento = '',

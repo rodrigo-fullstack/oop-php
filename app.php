@@ -293,18 +293,18 @@ $pessoa->documento = '12312312322';
 
 $apiData = <<<JSON_TEXT
     {
-        "name": "Rodrigo",
-        "age": 18,
-        "document": "1112223_3333"
+        "nome": "Rodrigo",
+        "idade": 18,
+        "documento": "1112223_3333"
     }
 JSON_TEXT;
 
 $data = json_decode($apiData);
 
 // dump($data);
-dump($data->name);
-dump($data->age);
-dump($data->document);
+// dump($data->name);
+// dump($data->age);
+// dump($data->document);
 
 $pessoa = new PessoaDTO(json_decode($apiData));
 
