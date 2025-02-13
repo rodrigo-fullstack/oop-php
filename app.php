@@ -257,9 +257,10 @@ getName($empresa);
 // Properties Promotions
 // --------------------
 
-$pessoa = new Pessoa('Rodrigo', 18, '00011122233');
+// Cria atributos a partir do construtor
+// $pessoa = new Pessoa('Rodrigo', 18, '00011122233');
 
-// itera sobre o valor de cada um dos atributos, não funciona exibindo a propriedade do objeto
-foreach($pessoa as $propriedade => $atributo){
-    echo $atributo . PHP_EOL;
-}
+// itera sobre o valor de cada um dos atributos, não funciona exibindo a propriedade do objeto/*  */
+// foreach($pessoa as $propriedade => $atributo){
+//     echo $atributo . PHP_EOL;
+// }
