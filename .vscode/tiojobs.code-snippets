@@ -1,7 +1,0 @@
-{
-  "Declare Strict Types": {
-    "prefix": ["dect"],
-    "body": ["declare(strict_types=1);"],
-    "description": "Declare strict types for php."
-  }
-}

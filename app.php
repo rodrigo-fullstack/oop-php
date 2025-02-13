@@ -25,10 +25,11 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\ClassesAbstratas\PessoaFisica;
 // use Rodrigo\OopPhp\ClassesAbstratas\PessoaJuridica;
 
-use Rodrigo\OopPhp\Visibilidade\Pessoa;
-use Rodrigo\OopPhp\Visibilidade\PessoaFisica;
-use Rodrigo\OopPhp\Visibilidade\PessoaJuridica;
+// use Rodrigo\OopPhp\Visibilidade\Pessoa;
+// use Rodrigo\OopPhp\Visibilidade\PessoaFisica;
+// use Rodrigo\OopPhp\Visibilidade\PessoaJuridica;
 
+use Rodrigo\OopPhp\PropertiesPromotions\Pessoa;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -221,33 +222,44 @@ getName($empresa);
 */
 
 //Construtor de Classe Abstrata
-$pessoa = new PessoaFisica(
-    1,
-    'Rodrigo',
-    18,
-    'M',
-    ''
-);
+// $pessoa = new PessoaFisica(
+//     1,
+//     'Rodrigo',
+//     18,
+//     'M',
+//     ''
+// );
 
-$empresa = new PessoaJuridica(
-    02,
-    'JohnnyDevs',
-    '00.00001/23154'
-);
+// $empresa = new PessoaJuridica(
+//     02,
+//     'JohnnyDevs',
+//     '00.00001/23154'
+// );
 
 //$pessoa::instancia($empresa); Não quero que as classes filhas tenham acesso ao método instancia. Aqui o que acontece é a execução do método na classe abstrata, não na classe PessoaFisica
 //$pessoa::instancia($empresa); Chamada com o método privado impede seu acesso
 
-Pessoa::instancia($pessoa);
+// Pessoa::instancia($pessoa);
 
 //Métodos públicos consegue acessar nas classes filhas
-$pessoa->setId(5);
-$pessoa->setNome('José');
+// $pessoa->setId(5);
+// $pessoa->setNome('José');
 
 
 
 //Melhor vardumper, do Symphony
 //No dump, + significa público
 //No dump, - significa privado
-dump($pessoa);
-dump($empresa);
+// dump($pessoa);
+// dump($empresa);
+
+// --------------------
+// Properties Promotions
+// --------------------
+
+$pessoa = new Pessoa('Rodrigo', 18, '00011122233');
+
+// itera sobre o valor de cada um dos atributos, não funciona exibindo a propriedade do objeto
+foreach($pessoa as $propriedade => $atributo){
+    echo $atributo . PHP_EOL;
+}
