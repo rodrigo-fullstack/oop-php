@@ -27,8 +27,10 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\Visibilidade\PessoaFisica;
 // use Rodrigo\OopPhp\Visibilidade\PessoaJuridica;
 
-use Rodrigo\OopPhp\Traits\ContaBancaria;
-use Rodrigo\OopPhp\Traits\Pessoa;
+// use Rodrigo\OopPhp\Traits\ContaBancaria;
+// use Rodrigo\OopPhp\Traits\Pessoa;
+
+use Rodrigo\OopPhp\DTO\PessoaDTO;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -267,14 +269,43 @@ getName($empresa);
 
 // Traits são propriedades e métodos que são adicionados a uma classe por meio da palavra-chave use em PHP.
 // Em outras palavras, seriam como adereços, acessórios ou super-poderes que são dados para uma determninada classe.
-$pessoa = new Pessoa('Rodrigo',
-    new DateTime(),
-    '00011122333',
-    '0000-0',
-    '00011122'
-);
+// $pessoa = new Pessoa('Rodrigo',
+//     new DateTime(),
+//     '00011122333',
+//     '0000-0',
+//     '00011122'
+// );
 
 
-$contaBancaria = new ContaBancaria($pessoa, '1000');
-dump($contaBancaria);
+// $contaBancaria = new ContaBancaria($pessoa, '1000');
+// dump($contaBancaria);
 
+// --------------------
+// stdClass
+// --------------------
+
+$pessoa = new stdClass();
+$pessoa->nome = 'Rodrigo';
+$pessoa->idade = 18;
+$pessoa->documento = '12312312322';
+
+// dump($pessoa);
+
+$apiData = <<<JSON_TEXT
+    {
+        "name": "Rodrigo",
+        "age": 18,
+        "document": "1112223_3333"
+    }
+JSON_TEXT;
+
+$data = json_decode($apiData);
+
+// dump($data);
+dump($data->name);
+dump($data->age);
+dump($data->document);
+
+$pessoa = new PessoaDTO(json_decode($apiData));
+
+dump($pessoa);
