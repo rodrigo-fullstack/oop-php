@@ -38,7 +38,9 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\Enums\Produto;
 // use Rodrigo\OopPhp\Enums\Teams;
 
-use Rodrigo\OopPhp\Exceptions\Email;
+// use Rodrigo\OopPhp\Exceptions\Email;
+
+use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -439,11 +441,25 @@ getName($empresa);
 // Exceptions
 // --------------------
 
-try{
-    $email = new Email('email@a.c');
+// try{
+//     $email = new Email('email@a.c');
     
-} catch(Exception $e){
-    echo $e->getMessage(); 
-}
+// } catch(Exception $e){
+//     echo $e->getMessage(); 
+// }
 
-echo $email;
+// echo $email;
+
+
+// --------------------
+// Métodos Mágicos
+// --------------------
+
+$pessoa = new PessoaFisica('Rodrigo', 22, '00011122243');
+
+try{
+    echo $pessoa;
+
+} catch(Error $e){
+    echo 'Objeto não é do tipo esperado...' . PHP_EOL;
+}
