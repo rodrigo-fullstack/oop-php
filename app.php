@@ -452,14 +452,30 @@ getName($empresa);
 
 
 // --------------------
-// Métodos Mágicos
+// Métodos Mágicos __construct e __destruct
 // --------------------
 
-$pessoa = new PessoaFisica('Rodrigo', 22, '00011122243');
+// $pessoa = new PessoaFisica('Rodrigo', 22, '00011122243');
 
-try{
-    echo $pessoa;
+// try{
+//     echo $pessoa;
 
-} catch(Error $e){
-    echo 'Objeto não é do tipo esperado...' . PHP_EOL;
+// } catch(Error $e){
+//     echo 'Objeto não é do tipo esperado...' . PHP_EOL;
+// }
+
+// --------------------
+// Métodos Mágicos - __get e __set
+// --------------------
+
+$pessoa = new PessoaFisica();
+
+dump($pessoa->altura);
+
+if(!property_exists($pessoa, 'altura')){
+    $pessoa->altura = '';
 }
+
+$pessoa->altura = 20;
+
+dump($pessoa->altura);

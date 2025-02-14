@@ -15,5 +15,17 @@ abstract class Pessoa
         return $this->nome;
     }
 
+    public function __get($propriedade){
+        if(property_exists($this, $propriedade)){
+            return $this->$propriedade;
+        }
+
+        // NullObject
+        return null;
+    }
+
+    public function __set($propriedade, $valor){
+        $this->$propriedade = $valor;
+    }
 
 }
