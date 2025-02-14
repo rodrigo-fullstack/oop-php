@@ -1,8 +1,5 @@
 <?php
 
-use Rodrigo\OopPhp\Enums\Produto;
-use Rodrigo\OopPhp\Enums\Teams;
-
 require __DIR__ . '/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\Classes\PessoaFisica;
@@ -36,7 +33,12 @@ require __DIR__ . '/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\DTO\PessoaDTO;
 
-use Rodrigo\OopPhp\InstanceOf\PessoaInterface;
+// use Rodrigo\OopPhp\InstanceOf\PessoaInterface;
+
+// use Rodrigo\OopPhp\Enums\Produto;
+// use Rodrigo\OopPhp\Enums\Teams;
+
+use Rodrigo\OopPhp\Exceptions\Email;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -401,33 +403,47 @@ getName($empresa);
 // BackedEnums //
 
 // Pode obter valores traduzindo de um banco de dados
-$registro = [
-    'pais'  => 'Brasil',
-    'times' => [
-        'sp', 'b', 'v', 'st',
-    ],
-];
+// $registro = [
+//     'pais'  => 'Brasil',
+//     'times' => [
+//         'sp', 'b', 'v', 'st',
+//     ],
+// ];
 
-$dadosBd = $registro['times'][0];
+// $dadosBd = $registro['times'][0];
 
-$time = Teams::from($dadosBd);
-dump($time);
+// $time = Teams::from($dadosBd);
+// dump($time);
 
-$mensagem = match($time){
-    Teams::SaoPaulo => 'Eu sou Paulista!!!',
-    Teams::Bahia => 'Bora Bahea minha p@!@#',
-    Teams::Vitoria => 'Bora Vitória!!!',
-    Teams::Santos => 'Bora Neymar!!!'
-};
+// $mensagem = match($time){
+//     Teams::SaoPaulo => 'Eu sou Paulista!!!',
+//     Teams::Bahia => 'Bora Bahea minha p@!@#',
+//     Teams::Vitoria => 'Bora Vitória!!!',
+//     Teams::Santos => 'Bora Neymar!!!'
+// };
 
-echo $mensagem . PHP_EOL;
+// echo $mensagem . PHP_EOL;
 
-echo $time->value;
+// echo $time->value;
 
-$dadosBd = 'pl';
+// $dadosBd = 'pl';
 
-$time = Teams::tryFrom($dadosBd) ?? 'Não existe';
+// $time = Teams::tryFrom($dadosBd) ?? 'Não existe';
 
-dump($time);
+// dump($time);
 
-//22:23
+// // 
+
+
+// --------------------
+// Exceptions
+// --------------------
+
+try{
+    $email = new Email('email@a.c');
+    
+} catch(Exception $e){
+    echo $e->getMessage(); 
+}
+
+echo $email;
