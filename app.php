@@ -1,9 +1,7 @@
 <?php
 
-use Rodrigo\OopPhp\Enums\DiasDaSemana;
-use Rodrigo\OopPhp\Enums\EstadoPedido;
-use Rodrigo\OopPhp\InstanceOf\Pessoa;
-use Rodrigo\OopPhp\InstanceOf\PessoaInterface;
+use Rodrigo\OopPhp\Enums\Produto;
+use Rodrigo\OopPhp\Enums\Teams;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -38,8 +36,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\DTO\PessoaDTO;
 
-use Rodrigo\OopPhp\Enums\Produto;
-use Rodrigo\OopPhp\Enums\DiaDaSemana;
+use Rodrigo\OopPhp\InstanceOf\PessoaInterface;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -285,7 +282,6 @@ getName($empresa);
 //     '00011122'
 // );
 
-
 // $contaBancaria = new ContaBancaria($pessoa, '1000');
 // dump($contaBancaria);
 
@@ -319,7 +315,6 @@ getName($empresa);
 
 // dump($pessoa);
 
-
 // --------------------
 // Classes Anônimas
 // --------------------
@@ -336,7 +331,7 @@ getName($empresa);
 
 //     private float $hormonios = 0;
 //     private bool $rebeldia = false;
-    
+
 //     public function puberdade(){
 //         $this->hormonios += 100;
 
@@ -395,12 +390,44 @@ getName($empresa);
 // $produto->pagar(5000)
 //     ->verificarEstado();
 
-
-function pick_a_day(DiaDaSemana $diaDaSemana){
-    echo $diaDaSemana->name;
-}
+// function pick_a_day(DiaDaSemana $diaDaSemana){
+//     echo $diaDaSemana->name;
+// }
 
 // pick_a_day('Segunda'); Erro de tipo string
-pick_a_day(DiaDaSemana::SegundaFeira); 
+// pick_a_day(DiaDaSemana::SegundaFeira);
 // pick_a_day(DiaDaSemana::Domingo->name); Gera erro pois não é do ENUM DiaDaSemana
 
+// BackedEnums //
+
+// Pode obter valores traduzindo de um banco de dados
+$registro = [
+    'pais'  => 'Brasil',
+    'times' => [
+        'sp', 'b', 'v', 'st',
+    ],
+];
+
+$dadosBd = $registro['times'][0];
+
+$time = Teams::from($dadosBd);
+dump($time);
+
+$mensagem = match($time){
+    Teams::SaoPaulo => 'Eu sou Paulista!!!',
+    Teams::Bahia => 'Bora Bahea minha p@!@#',
+    Teams::Vitoria => 'Bora Vitória!!!',
+    Teams::Santos => 'Bora Neymar!!!'
+};
+
+echo $mensagem . PHP_EOL;
+
+echo $time->value;
+
+$dadosBd = 'pl';
+
+$time = Teams::tryFrom($dadosBd) ?? 'Não existe';
+
+dump($time);
+
+//22:23
