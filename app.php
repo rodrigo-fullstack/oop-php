@@ -1,5 +1,7 @@
 <?php
 
+use Rodrigo\OopPhp\Enums\DiasDaSemana;
+use Rodrigo\OopPhp\Enums\EstadoPedido;
 use Rodrigo\OopPhp\InstanceOf\Pessoa;
 use Rodrigo\OopPhp\InstanceOf\PessoaInterface;
 
@@ -35,6 +37,9 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\Traits\Pessoa;
 
 // use Rodrigo\OopPhp\DTO\PessoaDTO;
+
+use Rodrigo\OopPhp\Enums\Produto;
+use Rodrigo\OopPhp\Enums\DiaDaSemana;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -352,7 +357,7 @@ getName($empresa);
 // dump($jovem);
 
 // --------------------
-// Classes Anônimas
+// Instance Of
 // --------------------
 
 // $pessoa1 = new Pessoa();
@@ -375,4 +380,27 @@ getName($empresa);
 // $pessoa1->falar();
 
 // $pessoa2->sentirGosto($objeto);
+
+// --------------------
+// Enums
+// --------------------
+
+// Pure Case Enums //
+// $produto = new Produto('PS5', 5000, EstadoPedido::EsperaDePagamento);
+
+// dump($produto);
+
+// $produto->verificarEstado();
+
+// $produto->pagar(5000)
+//     ->verificarEstado();
+
+
+function pick_a_day(DiaDaSemana $diaDaSemana){
+    echo $diaDaSemana->name;
+}
+
+// pick_a_day('Segunda'); Erro de tipo string
+pick_a_day(DiaDaSemana::SegundaFeira); 
+// pick_a_day(DiaDaSemana::Domingo->name); Gera erro pois não é do ENUM DiaDaSemana
 
