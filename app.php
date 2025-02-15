@@ -506,24 +506,36 @@ getName($empresa);
 // Métodos Mágicos - __call e __callstatic
 // --------------------
 
+// $pessoa = new PessoaFisica();
+
+// $pessoa->nome = 'Rodrigo';
+
+// dump($pessoa->tocarViolao('Joaquina', 'Nova Música'));
+
+// dump($pessoa->getNome());
+
+// try{
+//     $pessoa::validarNome($pessoa->nome);
+
+// } catch(Exception $e){
+//     echo $e->getMessage();
+// }
+
+// $pessoa::setEspirito('bom');
+
+// echo $pessoa::$espirito;
+
+
+
+
+// --------------------
+// Métodos Mágicos - __toString
+// --------------------
+
 $pessoa = new PessoaFisica();
 
+$pessoa->idade = 18;
+$pessoa->cpf = '00011122233';
 $pessoa->nome = 'Rodrigo';
-
-dump($pessoa->tocarViolao('Joaquina', 'Nova Música'));
-
-dump($pessoa->getNome());
-
-try{
-    $pessoa::validarNome($pessoa->nome);
-
-} catch(Exception $e){
-    echo $e->getMessage();
-}
-
-$pessoa::setEspirito('bom');
-
-echo $pessoa::$espirito;
-
-
+echo $pessoa;
 
