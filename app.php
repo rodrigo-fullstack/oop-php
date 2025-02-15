@@ -485,21 +485,45 @@ getName($empresa);
 // Métodos Mágicos - __isset e __unset
 // --------------------
 
-$pessoa = new PessoaFisica();
+// $pessoa = new PessoaFisica();
 
 // dump($pessoa->idade);
-dump($pessoa->idade);
+// dump($pessoa->idade);
 
-// revisar depois
-dump(isset($pessoa->idade));
-// dump(isset($pessoa->nome));
+// // revisar depois
+// dump(isset($pessoa->idade));
+// // dump(isset($pessoa->nome));
 
-$pessoa->idade = 11;
-dump($pessoa->idade);
+// $pessoa->idade = 11;
+// dump($pessoa->idade);
 
-unset($pessoa->idade);
+// unset($pessoa->idade);
 
-dump($pessoa->idade);
+// dump($pessoa->idade);
+
+
+// --------------------
+// Métodos Mágicos - __call e __callstatic
+// --------------------
+
+$pessoa = new PessoaFisica();
+
+$pessoa->nome = 'Rodrigo';
+
+dump($pessoa->tocarViolao('Joaquina', 'Nova Música'));
+
+dump($pessoa->getNome());
+
+try{
+    $pessoa::validarNome($pessoa->nome);
+
+} catch(Exception $e){
+    echo $e->getMessage();
+}
+
+$pessoa::setEspirito('bom');
+
+echo $pessoa::$espirito;
 
 
 
