@@ -28,4 +28,12 @@ abstract class Pessoa
         $this->$propriedade = $valor;
     }
 
+    public function __isset(string $propriedade){
+        return property_exists($this, $propriedade);
+    }
+
+    public function __unset(string $propriedade){
+        unset($this->$propriedade);
+    }
+
 }

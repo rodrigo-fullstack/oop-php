@@ -468,14 +468,38 @@ getName($empresa);
 // Métodos Mágicos - __get e __set
 // --------------------
 
+
+// $pessoa = new PessoaFisica();
+
+// dump($pessoa->altura);
+
+// if(!property_exists($pessoa, 'altura')){
+//     $pessoa->altura = '';
+// }
+
+// $pessoa->altura = 20;
+
+// dump($pessoa->altura);
+
+// --------------------
+// Métodos Mágicos - __isset e __unset
+// --------------------
+
 $pessoa = new PessoaFisica();
 
-dump($pessoa->altura);
+// dump($pessoa->idade);
+dump($pessoa->idade);
 
-if(!property_exists($pessoa, 'altura')){
-    $pessoa->altura = '';
-}
+// revisar depois
+dump(isset($pessoa->idade));
+// dump(isset($pessoa->nome));
 
-$pessoa->altura = 20;
+$pessoa->idade = 11;
+dump($pessoa->idade);
 
-dump($pessoa->altura);
+unset($pessoa->idade);
+
+dump($pessoa->idade);
+
+
+
