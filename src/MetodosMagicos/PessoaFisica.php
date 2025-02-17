@@ -23,7 +23,7 @@ class PessoaFisica extends Pessoa{
     // Métodos Mágicos - __destruct
     // --------------------
 
-    // destrói o objeto para evitar gasto de memóri
+    // destrói o objeto para evitar gasto de memória
     public function __destruct(){
         parent::__destruct();
         echo "Destruir Objeto Pessoa Fisica"  . PHP_EOL;
@@ -43,6 +43,11 @@ class PessoaFisica extends Pessoa{
             if(empty($valor)){
                 $valor = 'Nulo';
             }
+
+            if(is_array($valor)){
+                $valor = json_encode($valor, JSON_PRETTY_PRINT);
+            }
+
             $string .= $atributo . ': ' . $valor;    
             if($i < count($atributos) - 1){
                 $string .= ',';

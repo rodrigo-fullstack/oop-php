@@ -105,4 +105,8 @@ abstract class Pessoa
         // chama o método pela função passando o nome da classe, o método e os parâmetros
         return call_user_func_array([Pessoa::class, $method], $parameters);
     }
+
+    public function __invoke(string $propriedade, mixed $valor){
+        $this->$propriedade = $valor;
+    }
 }

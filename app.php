@@ -541,12 +541,32 @@ getName($empresa);
 // $pessoa->nome = 'Rodrigo';
 // echo $pessoa;
 
-$pessoa = new PessoaFisica2('Rodrigo', '00011122233', 18);
+// -
+// Exercício
+// =
+
+// $pessoa = new PessoaFisica2('Rodrigo', '00011122233', 18);
 
 
-$pessoa->altura = 1.80;
+// $pessoa->altura = 1.80;
 
-$pessoa->peso = 82.98;
-// echo $pessoa;
+// $pessoa->peso = 82.98;
+// // echo $pessoa;
 
-echo($pessoa->toJson());
+// echo($pessoa->toJson());
+
+// --------------------
+// Métodos Mágicos - __invoke
+// --------------------
+// quando você chama o objeto como uma função
+
+$pessoa = new PessoaFisica();
+
+$pessoa('nome', 'Rodrigo');
+$pessoa('idade', 18);
+$pessoa('livros', [
+    'Guerra das Estrelas', 'Guerras Híbridas'
+]);
+
+echo $pessoa;
+
