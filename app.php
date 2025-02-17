@@ -532,6 +532,7 @@ getName($empresa);
 // Métodos Mágicos - __toString
 // --------------------
 
+// to string: recebe a instãncia do objeto e tranforma para string de acordo com o método definido na classe
 $pessoa = new PessoaFisica();
 
 $pessoa->idade = 18;
