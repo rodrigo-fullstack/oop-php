@@ -43,7 +43,8 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica;
 // use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica2;
 
-use Rodrigo\OopPhp\Readonly\Gateway;
+// use Rodrigo\OopPhp\Readonly\Gateway;
+use Rodrigo\OopPhp\ReflectionAPI\Robo;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -437,8 +438,7 @@ getName($empresa);
 
 // dump($time);
 
-// // 
-
+// //
 
 // --------------------
 // Exceptions
@@ -446,13 +446,12 @@ getName($empresa);
 
 // try{
 //     $email = new Email('email@a.c');
-    
+
 // } catch(Exception $e){
-//     echo $e->getMessage(); 
+//     echo $e->getMessage();
 // }
 
 // echo $email;
-
 
 // --------------------
 // Métodos Mágicos __construct e __destruct
@@ -470,7 +469,6 @@ getName($empresa);
 // --------------------
 // Métodos Mágicos - __get e __set
 // --------------------
-
 
 // $pessoa = new PessoaFisica();
 
@@ -504,7 +502,6 @@ getName($empresa);
 
 // dump($pessoa->idade);
 
-
 // --------------------
 // Métodos Mágicos - __call e __callstatic
 // --------------------
@@ -528,9 +525,6 @@ getName($empresa);
 
 // echo $pessoa::$espirito;
 
-
-
-
 // --------------------
 // Métodos Mágicos - __toString
 // --------------------
@@ -548,7 +542,6 @@ getName($empresa);
 // =
 
 // $pessoa = new PessoaFisica2('Rodrigo', '00011122233', 18);
-
 
 // $pessoa->altura = 1.80;
 
@@ -572,14 +565,57 @@ getName($empresa);
 
 // echo $pessoa;
 
-
 // --------------------
 // Readonly
 // --------------------
 
-$gateway = new Gateway('oasdiojwoajiodjoksa', 'https://gateway.com.br');
+// $gateway = new Gateway('oasdiojwoajiodjoksa', 'https://gateway.com.br');
 
-echo $gateway->token . PHP_EOL;
-echo $gateway->baseUrl;
+// echo $gateway->token . PHP_EOL;
+// echo $gateway->baseUrl;
 
 // $gateway->token = 'abc'; Gera erro com classe readonly ou propriedade readonly
+
+// --------------------
+// Reflection API
+// --------------------
+
+// 39:23
+
+$reflectionClass = new ReflectionClass(Robo::class);
+
+// dump($reflectionClass);
+
+// captura todos métodos
+// dump($reflectionClass->getMethods());
+
+// captura todas as propriedades
+// dump($reflectionClass->getProperties());
+
+// Utilizando Properties de Reflection Class
+// function showProperties(array $properties){
+//     foreach($properties as $property){
+//         echo getPropertyName($property) . ": "
+//         . getPropertyModifiers($property) . PHP_EOL;
+//     }
+// }
+
+// function getPropertyName(ReflectionProperty $property): string{
+//     return $property->getName();
+// }
+
+// function getPropertyModifiers(ReflectionProperty $property): string{
+//     return Modifiers::from($property->getModifiers())->name;
+// }
+// Enum Modifiers: int{
+//     case Public = 1;
+//     case Private = 4;
+//     case Protected = 2;
+
+// }
+
+// showProperties($reflectionClass->getProperties());
+dump($reflectionClass->getMethods());
+function showMethods(ReflectionClass $reflectionMethods){
+
+}
