@@ -40,8 +40,10 @@ require __DIR__ . '/vendor/autoload.php';
 
 // use Rodrigo\OopPhp\Exceptions\Email;
 
-use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica;
-use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica2;
+// use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica;
+// use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica2;
+
+use Rodrigo\OopPhp\Readonly\Gateway;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -560,13 +562,24 @@ getName($empresa);
 // --------------------
 // quando você chama o objeto como uma função
 
-$pessoa = new PessoaFisica();
+// $pessoa = new PessoaFisica();
 
-$pessoa('nome', 'Rodrigo');
-$pessoa('idade', 18);
-$pessoa('livros', [
-    'Guerra das Estrelas', 'Guerras Híbridas'
-]);
+// $pessoa('nome', 'Rodrigo');
+// $pessoa('idade', 18);
+// $pessoa('livros', [
+//     'Guerra das Estrelas', 'Guerras Híbridas'
+// ]);
 
-echo $pessoa;
+// echo $pessoa;
 
+
+// --------------------
+// Readonly
+// --------------------
+
+$gateway = new Gateway('oasdiojwoajiodjoksa', 'https://gateway.com.br');
+
+echo $gateway->token . PHP_EOL;
+echo $gateway->baseUrl;
+
+// $gateway->token = 'abc'; Gera erro com classe readonly ou propriedade readonly
