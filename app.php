@@ -41,6 +41,7 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\Exceptions\Email;
 
 use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica;
+use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica2;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -533,10 +534,19 @@ getName($empresa);
 // --------------------
 
 // to string: recebe a instãncia do objeto e tranforma para string de acordo com o método definido na classe
-$pessoa = new PessoaFisica();
+// $pessoa = new PessoaFisica();
 
-$pessoa->idade = 18;
-$pessoa->cpf = '00011122233';
-$pessoa->nome = 'Rodrigo';
-echo $pessoa;
+// $pessoa->idade = 18;
+// $pessoa->cpf = '00011122233';
+// $pessoa->nome = 'Rodrigo';
+// echo $pessoa;
 
+$pessoa = new PessoaFisica2('Rodrigo', '00011122233', 18);
+
+
+$pessoa->altura = 1.80;
+
+$pessoa->peso = 82.98;
+// echo $pessoa;
+
+echo($pessoa->toJson());
