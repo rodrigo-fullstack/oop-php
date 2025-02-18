@@ -44,10 +44,15 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica2;
 
 // use Rodrigo\OopPhp\Readonly\Gateway;
-use Rodrigo\OopPhp\ReflectionAPI\estadoVoar;
-use Rodrigo\OopPhp\ReflectionAPI\Robo;
-use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoide;
-use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoideQuatroBracos;
+// use Rodrigo\OopPhp\ReflectionAPI\estadoVoar;
+// use Rodrigo\OopPhp\ReflectionAPI\Robo;
+// use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoide;
+// use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoideQuatroBracos;
+use Rodrigo\OopPhp\ReflectionAPI\Controllers\UserController;
+use Rodrigo\OopPhp\ReflectionAPI\Databases\DB;
+use Rodrigo\OopPhp\ReflectionAPI\Mail\Mail;
+use Rodrigo\OopPhp\ReflectionAPI\Services\UserService;
+use Rodrigo\OopPhp\ReflectionAPI\Validation\Validation;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -700,13 +705,40 @@ getName($empresa);
 // dd($robo);
 
 
-$reflectionClass = new ReflectionClass(Robo::class);
+// $reflectionClass = new ReflectionClass(Robo::class);
 // dump($reflectionClass->getDocComment());
 
 // $reflectionMethod = $reflectionClass->getMethod('setData');
 
 // echo $reflectionMethod->getDocComment();
 
-$reflectionProperty = $reflectionClass->getProperty('body');
+// $reflectionProperty = $reflectionClass->getProperty('body');
 
-dd($reflectionProperty);
+// dd($reflectionProperty);
+
+// --------------------
+// Reflection API - Container de Serviço Implementação
+// --------------------
+// para injeção de dependências em Controllers
+$userController = new UserController(
+    db: new DB(),
+    mail: new Mail(),
+    validation: new Validation(),
+    userService: new UserService(),
+);
+
+
+$reflectionClass = new ReflectionClass($userController);
+// capturando parâmetros do Construtor (dependências do controller)
+$controllerDependencies = $reflectionClass->getConstructor()->getParameters();
+// dd($controllerDependencies);
+
+// capturando namespaces do controller
+foreach($controllerDependencies as $dependency){
+    echo getTypeName($dependency) . PHP_EOL;
+}
+
+// retorna o nome da classe que o controller depende
+function getTypeName(ReflectionParameter $parameter){   
+    return $parameter->getType()->getName();
+}
