@@ -670,5 +670,30 @@ $reflectionClass = new ReflectionClass(Robo::class);
 
 // dd($robo);
 
+// $reflectionClass = new ReflectionClass(RoboHumanoide::class);
+
+// dd($reflectionClass->getMethods());
+
+// dd($reflectionClass->getParentClass()); Robo
+
+// $robo = new RoboHumanoideQuatroBracos(
+//     'i9', 'chipset001'
+// );
+
+// $reflectionClass = new ReflectionClass(RoboHumanoideQuatroBracos::class);
+
+// dd($reflectionClass->getParentClass()); 
+// dump($reflectionClass->getParentClass()->getParentClass()->getMethod(
+//     'setData'
+// )->invoke(
+//     $robo,
+//     [
+//         'life' => 'is good',
+//         'evil' => 'is shit'
+//     ]
+// )); Acessando método privado tomando como base as classes pais
+
+// dd($robo);
+
 
 }
