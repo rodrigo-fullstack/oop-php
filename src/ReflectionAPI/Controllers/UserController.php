@@ -14,4 +14,8 @@ class UserController
         protected Validation $validation,
         protected UserService $userService
     ) {}
+
+    public function message($message){
+        echo $message;
+    }
 }
