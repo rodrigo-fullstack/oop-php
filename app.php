@@ -701,8 +701,12 @@ getName($empresa);
 
 
 $reflectionClass = new ReflectionClass(Robo::class);
-dump($reflectionClass->getDocComment());
+// dump($reflectionClass->getDocComment());
 
-$reflectionMethod = $reflectionClass->getMethod('setData');
+// $reflectionMethod = $reflectionClass->getMethod('setData');
 
-echo $reflectionMethod->getDocComment();
+// echo $reflectionMethod->getDocComment();
+
+$reflectionProperty = $reflectionClass->getProperty('body');
+
+dd($reflectionProperty);
