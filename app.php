@@ -615,7 +615,39 @@ $reflectionClass = new ReflectionClass(Robo::class);
 // }
 
 // showProperties($reflectionClass->getProperties());
-dump($reflectionClass->getMethods());
-function showMethods(ReflectionClass $reflectionMethods){
+// dump($reflectionClass->getMethods());
+// function showMethods(array $reflectionMethods){
+//     if($reflectionMethods === []){
+//         return null;
+//     }
+    
+//     foreach($reflectionMethods as $method){
+//         echo "Método: " , getMethodName($method) . PHP_EOL;
+//         echo "Modificador de acesso: " , getMethodModifiers($method) . PHP_EOL;
+//         echo "Classe: " , getMethodClass($method) . PHP_EOL;
+//     }
+// }
+
+// function getMethodName(ReflectionMethod $method){
+//     return $method->getName(); 
+// }
+
+// function getMethodModifiers(ReflectionMethod $method){
+//     return Modifiers::from($method->getModifiers())->name;
+// }
+
+// showMethods($reflectionClass->getMethods());
+// showMethods(
+//     $reflectionClass->getMethods(ReflectionMethod::IS_PUBLIC)
+// );
+
+// showMethods(
+//     $reflectionClass->getMethods(ReflectionMethod::IS_STATIC)
+// ); retorna nulo
+
+// showMethods(
+//     $reflectionClass->getMethods(ReflectionMethod::IS_PRIVATE)
+// );
+
 
 }
