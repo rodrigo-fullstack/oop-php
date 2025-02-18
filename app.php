@@ -649,5 +649,26 @@ $reflectionClass = new ReflectionClass(Robo::class);
 //     $reflectionClass->getMethods(ReflectionMethod::IS_PRIVATE)
 // );
 
+// $reflectionMethod = $reflectionClass->getMethod('setData');
+
+// $robo = new Robo('i5', 'chipset amd 3300');
+
+// // método privado invocado
+// $reflectionMethod->invoke(
+//     $robo,
+//     [
+//         'enemies' => 'the Evil',
+//         'allies' => 'the Good'
+//     ]
+// );
+
+// $reflectionMethod = $reflectionClass->getMethod('fly');
+// $reflectionMethod->invoke(
+//     $robo,
+//     estadoVoar::Rapido    
+// );
+
+// dd($robo);
+
 
 }
