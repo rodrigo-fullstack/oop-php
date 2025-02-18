@@ -44,7 +44,10 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\MetodosMagicos\PessoaFisica2;
 
 // use Rodrigo\OopPhp\Readonly\Gateway;
+use Rodrigo\OopPhp\ReflectionAPI\estadoVoar;
 use Rodrigo\OopPhp\ReflectionAPI\Robo;
+use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoide;
+use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoideQuatroBracos;
 
 //$pessoa = new \Rodrigo\OopPhp\Classes\PessoaFisica(); Instanciando Objeto com namespace
 
@@ -582,7 +585,7 @@ getName($empresa);
 
 // 39:23
 
-$reflectionClass = new ReflectionClass(Robo::class);
+// $reflectionClass = new ReflectionClass(Robo::class);
 
 // dump($reflectionClass);
 
@@ -607,6 +610,7 @@ $reflectionClass = new ReflectionClass(Robo::class);
 // function getPropertyModifiers(ReflectionProperty $property): string{
 //     return Modifiers::from($property->getModifiers())->name;
 // }
+
 // Enum Modifiers: int{
 //     case Public = 1;
 //     case Private = 4;
@@ -696,4 +700,9 @@ $reflectionClass = new ReflectionClass(Robo::class);
 // dd($robo);
 
 
-}
+$reflectionClass = new ReflectionClass(Robo::class);
+dump($reflectionClass->getDocComment());
+
+$reflectionMethod = $reflectionClass->getMethod('setData');
+
+echo $reflectionMethod->getDocComment();
