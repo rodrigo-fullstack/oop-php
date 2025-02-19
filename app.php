@@ -750,9 +750,14 @@ getName($empresa);
 // Automático
 
 $container = new Container();
-
+$container->setInstance(DB::class, fn() => new DB());
 // dd($container);
 
+// esse objeto permanece na mémoria?
 $userController = $container->buildObject(UserController::class);
 
-$userController->message('Estou vivo!');
+// $userController->message('Estou vivo!');
+
+unset($userController);
+
+// $userController = $container->buildObject(UserController::class);
