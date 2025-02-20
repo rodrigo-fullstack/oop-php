@@ -2,6 +2,7 @@
 namespace Rodrigo\OopPhp\Attributes\DTOs;
 
 use Rodrigo\OopPhp\Attributes\Validation\Rules\Required;
+use Rodrigo\OopPhp\Attributes\Validation\Rules\ValidEmail;
 use Rodrigo\OopPhp\Attributes\Validation\Validator;
 
 // --------------------
@@ -17,6 +18,7 @@ readonly class UserDTO
         private string $name, 
 
         #[Required]
+        #[ValidEmail]
         private string $email,
     ) {
         try{

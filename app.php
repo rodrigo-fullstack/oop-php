@@ -783,4 +783,9 @@ getName($empresa);
 
 // dd($userDTO);
 
+$userDTO = new UserDTO(
+    'Rodrigo', 
+    'rodrigo@gmail.com'
+);
 
+dd($userDTO);
