@@ -19,6 +19,8 @@ class Validator{
 
         // 1.1 lógica: passando no foreach
         foreach($properties as $property){
+            dump($property->getName());
+            dump($property->getValue($object));
             // 2. lógica: para cada propriedade retorna os seus atributos que implementam ValidatorRUleInterface e é instância de ReflectionAttribute
             $attributes = $property->getAttributes(
                 name: ValidatorRuleInterface::class,
@@ -32,10 +34,8 @@ class Validator{
                 
                 // 3. lógica: instacia o validador pelo attributo com o método getValidator()
                 $validator = $attribute->newInstance()->getValidator();
-                
                 // 4. lógica: Vlaidados os dados
                 if(!$validator->validate($property->getValue($object), ...$attribute->getArguments())){
-                    
                     // 5. lógica: se não for válido atribui um erro na propriedade errors
                     $validatorOfError = explode('\\', $attribute->getName());
                     $validatorOfError = $validatorOfError[count($validatorOfError) - 1];

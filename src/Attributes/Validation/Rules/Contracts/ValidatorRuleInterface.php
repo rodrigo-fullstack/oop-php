@@ -4,5 +4,5 @@ namespace Rodrigo\OopPhp\Attributes\Validation\Rules\Contracts;
 
 // 6. criar ValidatorRuleInterface
 interface ValidatorRuleInterface{
-    public function getValidator(): ValidatorInterface;
+    public function getValidator(): ValidatorInterface|LengthValidatorInterface;
 }
