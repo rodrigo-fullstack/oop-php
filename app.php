@@ -48,6 +48,8 @@ require __DIR__ . '/vendor/autoload.php';
 // use Rodrigo\OopPhp\ReflectionAPI\Robo;
 // use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoide;
 // use Rodrigo\OopPhp\ReflectionAPI\RoboHumanoideQuatroBracos;
+use Rodrigo\OopPhp\Attributes\DTOs\UserDTO;
+use Rodrigo\OopPhp\Attributes\Validation\Validator;
 use Rodrigo\OopPhp\ReflectionAPI\Controllers\UserController;
 use Rodrigo\OopPhp\ReflectionAPI\Core\Container;
 use Rodrigo\OopPhp\ReflectionAPI\Databases\DB;
@@ -749,15 +751,36 @@ getName($empresa);
 
 // Automático
 
-$container = new Container();
-$container->setInstance(DB::class, fn() => new DB());
+// $container = new Container();
+// $container->setInstance(DB::class, fn() => new DB());
 // dd($container);
 
 // esse objeto permanece na mémoria?
-$userController = $container->buildObject(UserController::class);
+// $userController = $container->buildObject(UserController::class);
 
 // $userController->message('Estou vivo!');
 
-unset($userController);
+// unset($userController);
 
 // $userController = $container->buildObject(UserController::class);
+
+
+// --------------------
+// Attributes (Anotations)
+// --------------------
+
+// $userDTO = new UserDTO(
+//     name: 'Rodrigo',
+//     email: 'Rodrigo',
+// );
+
+// $userDTO = new UserDTO(
+//     '', 
+//     ''
+// );
+
+
+
+// dd($userDTO);
+
+
